@@ -62,6 +62,8 @@ GEM
       io-like (~> 0.3.0)
     arel (9.0.0)
     ast (2.4.0)
+    autoprefixer-rails (9.6.1.1)
+      execjs
     babel-source (5.8.35)
     babel-transpiler (0.7.0)
       babel-source (>= 4.0, < 6)
@@ -70,6 +72,10 @@ GEM
     bindex (0.8.1)
     bootsnap (1.4.5)
       msgpack (~> 1.0)
+    bootstrap (4.3.1)
+      autoprefixer-rails (>= 9.1.0)
+      popper_js (>= 1.14.3, < 2)
+      sassc-rails (>= 2.0.0)
     builder (3.2.3)
     byebug (11.0.1)
     cancancan (3.0.1)
@@ -178,6 +184,7 @@ GEM
     parser (2.6.3.0)
       ast (~> 2.4.0)
     pg (1.1.4)
+    popper_js (1.14.5)
     pry (0.12.2)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
@@ -310,6 +317,7 @@ PLATFORMS
 DEPENDENCIES
   activeadmin (~> 2.2)
   bootsnap (>= 1.1.0)
+  bootstrap (~> 4.3.1)
   cancancan (~> 3.0.1)
   capybara (>= 2.15)
   carrierwave (~> 0.11.2)
@@ -318,6 +326,7 @@ DEPENDENCIES
   devise (~> 4.7.1)
   enumerize (~> 2.3, >= 2.3.1)
   jbuilder (~> 2.5)
+  jquery-rails
   listen (>= 3.0.5, < 3.2)
   mini_magick (~> 4.8)
   pg (~> 1.1.4)
