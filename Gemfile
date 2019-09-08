@@ -50,6 +50,8 @@ group :development, :test do
   gem 'rubocop', '~> 0.74.0', require: false
   gem 'rubocop-performance', '~> 1.4.1', require: false
   gem 'rubocop-rails', '~> 2.3.2', require: false
+  gem 'faker', '~> 2.2.2'
+  gem 'rainbow', '~> 3.0.0'
 end
 
 group :development do

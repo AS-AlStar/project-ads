@@ -1,18 +1,34 @@
 # frozen_string_literal: true
 
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-if Rails.env.development?
+def print_user(user)
+  puts [Rainbow('Email').blue, Rainbow(user.email).green].join(' : ')
+  puts [Rainbow('Password').blue, Rainbow(user.password).green].join(' : ')
+  puts Rainbow('*' * 20).yellow
+end
+
+admin, *others = 10.times.map do |index|
   User.create!(
-    email: 'admin@example.com',
-    password: 'password',
-    password_confirmation: 'password',
-    nickname: 'true_admin'
+      email: Faker::Internet.email,
+      password: Faker::Internet.password,
+      nickname: Faker::Twitter.screen_name,
+      role: index.zero? ? 'admin' : 'default',
+      first_name: Faker::Name.first_name,
+      last_name: Faker::Name.last_name
+
   )
 end
-# config.secret_key = 'c44ce72147c6ed18a24c0c968f153a9b1f5453cbb21d1f31058ee8568c6927c3701ba88212235c6a00ef7e1b'
+
+others.each do |user|
+  user.ads = 10.times.map do
+    Ad.new(
+        title: Faker::Book.title,
+        body: Faker::Books::Lovecraft.paragraph_by_chars(characters: 1024),
+        state: Ad.state.values.sample
+    )
+  end
+end
+
+puts 'Admin user'
+print_user(admin)
+puts 'Other users'
+others.each(&method(:print_user))
