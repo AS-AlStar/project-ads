@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Ad < ApplicationRecord
   extend Enumerize
 
@@ -5,6 +7,6 @@ class Ad < ApplicationRecord
 
   belongs_to :user
 
-  validates :title, presence: true, length: {minimum: 5}
+  validates :title, presence: true, length: { minimum: 5 }
   validates :body, presence: true
 end
