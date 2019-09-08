@@ -7,7 +7,7 @@ class User < ApplicationRecord
 
   enumerize :role, in: %i[default admin], default: :default
 
-  has_many :ads
+  has_many :ads, dependent: :destroy
 
   validates :nickname, :email, presence: true
 end
