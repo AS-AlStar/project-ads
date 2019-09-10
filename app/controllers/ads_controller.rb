@@ -23,15 +23,18 @@ class AdsController < ApplicationController
 
   def update
     if @ad.update(ad_params)
-      redirect_to
+      redirect_to @ad
     else
-      render 'edit'
+      redirect_to action: :edit, id: @ad.id
     end
   end
 
   def destroy
-    @ad.destroy
-    redirect_to root_path
+    if @ad.destroy
+      redirect_to root_path
+    else
+      redirect_to action: :show, id: @ad.id
+    end
   end
 
   private
