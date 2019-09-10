@@ -2,6 +2,6 @@
 
 class HomeController < ApplicationController
   def index
-    @ads = Ad.where(state: 'published')
+    @ads = Ad.where(state: 'published').page params[:page]
   end
 end

@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Ad < ApplicationRecord
+  paginates_per 15
+
   mount_uploader :image, ImageUploader
 
   extend Enumerize
