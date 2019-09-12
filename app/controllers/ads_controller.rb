@@ -1,7 +1,10 @@
 # frozen_string_literal: true
 
 class AdsController < ApplicationController
+  load_and_authorize_resource
   before_action :set_ad, only: %i[show edit update destroy]
+
+  def index; end
 
   def new
     @ad = Ad.new

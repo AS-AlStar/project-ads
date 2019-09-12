@@ -77,14 +77,14 @@ ActiveAdmin.setup do |config|
   # config.pundit_policy_namespace = :admin
 
   # You can customize your CanCan Ability class name here.
-  # config.cancan_ability_class = "Ability"
+  config.cancan_ability_class = "Ability"
 
   # You can specify a method to be called on unauthorized access.
   # This is necessary in order to prevent a redirect loop which happens
   # because, by default, user gets redirected to Dashboard. If user
   # doesn't have access to Dashboard, he'll end up in a redirect loop.
   # Method provided here should be defined in application_controller.rb.
-  # config.on_unauthorized_access = :access_denied
+  config.on_unauthorized_access = :access_denied
 
   # == Current User
   #
