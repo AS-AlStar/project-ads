@@ -23,6 +23,7 @@ gem 'devise', '~> 4.7.1'
 gem 'enumerize', '~> 2.3', '>= 2.3.1'
 gem 'jquery-rails'
 gem 'kaminari', '~> 1.1.1'
+gem 'whenever', '~> 1.0', require: false
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks

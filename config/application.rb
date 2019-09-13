@@ -10,6 +10,7 @@ Bundler.require(*Rails.groups)
 
 module ProjectAds
   class Application < Rails::Application
+    config.time_zone = 'Minsk'
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
 
