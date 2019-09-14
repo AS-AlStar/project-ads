@@ -10,6 +10,7 @@ class Ad < ApplicationRecord
   enumerize :state, in: %i[draft new rejected approved published archived], default: :draft
 
   belongs_to :user
+  belongs_to :category
 
   validates :title, presence: true, length: { minimum: 2 }
   validates :body, presence: true

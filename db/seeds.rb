@@ -22,12 +22,20 @@ admin, *others = Array.new(10).map.with_index do |_, index|
   )
 end
 
+Array.new(10).map do |_|
+  Category.create!(
+    name: Faker::ProgrammingLanguage.name,
+    status: Faker::Boolean.boolean
+  )
+end
+
 others.each do |user|
   user.ads = Array.new(10).map do
     Ad.new(
       title: Faker::Book.title,
       body: Faker::Books::Lovecraft.paragraph_by_chars(characters: 1024),
-      state: Ad.state.values.sample
+      state: Ad.state.values.sample,
+      category_id: Category.ids.sample
     )
   end
 end
