@@ -1,0 +1,16 @@
+.container.p-5
+  .row.align-items-center.flex-column
+    - @ads.each do |ad|
+      .p-1
+        a.list-group-item.list-group-item-action.flex-column.align-items-center[href="/categories/#{@category.id}/ads/#{ad.id}"]
+          .card-body
+            - if ad.image?
+              .card-img-left.float-left.p-2
+                |  <img src=
+                = ad.image.thumb.url
+                |  class="d-block w-100" alt="image">
+            h5.card-title
+              = ad.title
+            p.card-text
+              = ad.body
+    = paginate @ads
