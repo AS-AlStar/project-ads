@@ -8,9 +8,8 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light
       - if current_user
         - if current_user.role != 'admin'
           li.nav-item
-            |  <a class="nav-link" href="/users/
-            =current_user.id
-            | ">My profile
+            a.nav-link[href="/users/#{current_user.id}"]
+              | My profile
           li.nav-item
             a.nav-link[href="/ads/new"]
               | Create advertising
@@ -21,6 +20,7 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light
         li.nav-item
           = render 'layouts/dropdown_categories'
           = link_to 'LogOut', destroy_user_session_path, :method => :delete, class: 'nav-link'
+          = render 'layouts/search'
       - else
         = render 'layouts/dropdown_categories'
         li.nav-item
@@ -29,3 +29,5 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light
         li.nav-item
           a.nav-link[href="/users/sign_up"]
             | SignUp
+        li.nav-item
+          = render 'layouts/search'

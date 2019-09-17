@@ -35,7 +35,7 @@ others.each do |user|
       title: Faker::Book.title,
       body: Faker::Books::Lovecraft.paragraph_by_chars(characters: 1024),
       state: Ad.state.values.sample,
-      category_id: Category.ids.sample
+      category_id: Category.published.ids.sample
     )
   end
 end

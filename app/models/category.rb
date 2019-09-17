@@ -3,8 +3,6 @@
 class Category < ApplicationRecord
   extend Enumerize
 
-  paginates_per 15
-
   has_many :ads, dependent: :destroy
 
   validates :name, presence: true

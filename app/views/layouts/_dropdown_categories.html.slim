@@ -3,7 +3,5 @@ li.nav-item.dropdown
     |  Categories 
   .dropdown-menu[aria-labelledby="navbarDropdown"]
     - Category.all.published.each do |category|
-      |  <a class="dropdown-item" href="/categories/
-      = category.id
-      | ">
-      = category.name
+      a.dropdown-item[href="/categories/#{category.id}"]
+        = category.name
