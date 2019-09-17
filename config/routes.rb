@@ -6,5 +6,8 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   root to: 'home#index'
   resources :ads
+  resources :categories do
+    resources :ads
+  end
   resources :users, only: %i[show]
 end

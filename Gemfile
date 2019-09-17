@@ -20,9 +20,13 @@ gem 'activeadmin', '~> 2.2'
 gem 'bootstrap', '~> 4.3.1'
 gem 'cancancan', '~> 3.0.1'
 gem 'devise', '~> 4.7.1'
+gem 'elasticsearch-model', '~> 7.0'
+gem 'elasticsearch-rails', '~> 7.0'
 gem 'enumerize', '~> 2.3', '>= 2.3.1'
+gem 'html2slim', '~> 0.2.0'
 gem 'jquery-rails'
 gem 'kaminari', '~> 1.1.1'
+gem 'slim-rails', '~> 3.2'
 gem 'whenever', '~> 1.0', require: false
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'

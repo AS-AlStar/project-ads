@@ -1,0 +1,38 @@
+- if current_user
+  .container.p-3
+    .row.align-items-center.flex-column
+      h2
+        | My profile
+      .col-md-auto
+        .input-group.mb-3
+          .input-group-prepend
+            span#inputGroup-sizing-default.input-group-text
+              | Nickname
+          |  <input type="text" aria-label="Default" value="
+          = @user.nickname
+          | "> 
+          .input-group-prepend
+            span#inputGroup-sizing-default.input-group-text
+              | Full name
+          |  <input type="text" aria-label="Default" value="
+          = @user.full_name
+          | "> 
+          .input-group-prepend
+            span#inputGroup-sizing-default.input-group-text
+              | Email
+          |  <input type="text" aria-label="Default" value="
+          = @user.email
+          | "> 
+          - if current_user
+            a.btn.btn-primary.float-right.m-1[href="/users/edit" role="button"]
+              | Edit profile
+    .list-group
+      - @user.ads.each do |ad|
+        a.list-group-item.list-group-item-action.flex-column.align-items-start[href="/ads/#{ad.id}"]
+          .d-flex.w-100.justify-content-between
+            h5.mb-1
+              = ad.title
+            middle
+              = badge_by_state(ad)
+- else
+  - redirect to root_path

@@ -1,0 +1,19 @@
+.container[style="padding: 5%;"]
+  .row.justify-content-center.align-items-center
+    h2
+      = @ad.title
+  .row.float-right
+    - if current_user && current_user.ads.ids.include?(@ad.id)
+      = link_to 'Destroy', ad_path(@ad), method: :delete, class: "btn btn-warning"
+      = link_to 'Edit', edit_ad_path(@ad), class: "btn btn-primary" if @ad.state == ('draft' || 'archived' || 'rejected')
+    - elsif current_user && current_user.role == 'admin'
+      = link_to 'Destroy', ad_path(@ad), method: :delete, class: "btn btn-warning"
+  .row.justify-content-center.align-items-center
+    .col-md-auto[style="padding-bottom: 5px"]
+      p
+        = @ad.body
+    - if @ad.image?
+      .col-md-auto[style="padding-bottom: 5%"]
+        |  <img src=
+        = @ad.image.url
+        |  class="d-block w-100" alt="image"> 

@@ -1,6 +1,19 @@
 # frozen_string_literal: true
 
 class Ad < ApplicationRecord
+  include Elasticsearch::Model
+  include Elasticsearch::Model::Callbacks
+
+  index_name Rails.application.class.parent_name.underscore
+  document_type name.downcase
+
+  settings index: { number_of_shards: 1 } do
+    mapping dynamic: false do
+      indexes :title, analyzer: 'english'
+      indexes :body, analyzer: 'english'
+    end
+  end
+
   paginates_per 15
 
   mount_uploader :image, ImageUploader
@@ -10,6 +23,7 @@ class Ad < ApplicationRecord
   enumerize :state, in: %i[draft new rejected approved published archived], default: :draft
 
   belongs_to :user
+  belongs_to :category
 
   validates :title, presence: true, length: { minimum: 2 }
   validates :body, presence: true

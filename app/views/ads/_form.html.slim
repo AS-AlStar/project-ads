@@ -1,0 +1,28 @@
+.col-md-auto
+  = form_for @ad, html: { id: 'newAdForm' } do |f|
+    .form-group
+      = f.label :title
+      br
+      = f.text_field :title, autofocus: true, class: 'form-control'
+    .form-group
+      = f.label :body
+      br
+      = f.text_area :body, class: 'form-control'
+    .form-group
+      = f.label :category
+      br
+      = f.collection_select(:category_id, Category.all, :id, :name)
+    .form-group
+      = f.label :image
+      br
+      = f.file_field :image
+    - if @ad.image?
+      = image_tag @ad.image.thumb.url
+      .form-group
+        = label_tag :remove_image do
+          |  Remove image 
+          = f.check_box :remove_image
+    = f.hidden_field :state
+    .actions
+      = f.submit "Save as draft", class: 'btn btn-primary', id: 'saveDraftAdButton'
+      = f.submit "Create", class: 'btn btn-warning', id: 'saveNewAdButton'
