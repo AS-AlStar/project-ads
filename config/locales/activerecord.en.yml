@@ -1,0 +1,25 @@
+en:
+  activerecord:
+    models:
+      ad: 'Advert'
+      created_at: 'Created at'
+    attributes:
+      ad:
+        title: 'Title'
+        body: 'Body'
+        category: 'Category'
+        image: 'Image'
+      category:
+        name: 'Title'
+      user:
+        nickname: 'Nickname'
+        first_name: 'First name'
+        last_name: 'Last name'
+        password: 'Password'
+        password_confirmation: 'Password confirmation'
+        current_password: 'Current password'
+        sign_in: 'SignIn'
+        sign_up: 'SignUp'
+    errors:
+      messages:
+        blank: "can't be blank"

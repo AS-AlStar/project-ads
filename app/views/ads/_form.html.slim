@@ -11,7 +11,7 @@
     .form-group
       = f.label :category
       br
-      = f.collection_select(:category_id, Category.all, :id, :name)
+      = f.collection_select(:category_id, Category.published, :id, :name)
     .form-group
       = f.label :image
       br
@@ -24,5 +24,5 @@
           = f.check_box :remove_image
     = f.hidden_field :state
     .actions
-      = f.submit "Save as draft", class: 'btn btn-primary', id: 'saveDraftAdButton'
-      = f.submit "Create", class: 'btn btn-warning', id: 'saveNewAdButton'
+      = f.submit t(:save_as_draft), class: 'btn btn-primary', id: 'saveDraftAdButton'
+      = f.submit t(:create), class: 'btn btn-warning', id: 'saveNewAdButton'

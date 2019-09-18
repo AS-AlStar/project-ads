@@ -26,6 +26,7 @@ gem 'enumerize', '~> 2.3', '>= 2.3.1'
 gem 'html2slim', '~> 0.2.0'
 gem 'jquery-rails'
 gem 'kaminari', '~> 1.1.1'
+gem 'rails-i18n'
 gem 'slim-rails', '~> 3.2'
 gem 'whenever', '~> 1.0', require: false
 # Use CoffeeScript for .coffee assets and views

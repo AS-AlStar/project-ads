@@ -2,18 +2,18 @@
   .container.p-3
     .row.align-items-center.flex-column
       h2
-        | My profile
+        = t(:my_profile)
       .col-md-auto
         .input-group.mb-3
           .input-group-prepend
             span#inputGroup-sizing-default.input-group-text
-              | Nickname
+              = t(:nickname)
           |  <input type="text" aria-label="Default" value="
           = @user.nickname
           | "> 
           .input-group-prepend
             span#inputGroup-sizing-default.input-group-text
-              | Full name
+              = t(:full_name)
           |  <input type="text" aria-label="Default" value="
           = @user.full_name
           | "> 
@@ -24,8 +24,8 @@
           = @user.email
           | "> 
           - if current_user
-            a.btn.btn-primary.float-right.m-1[href="/users/edit" role="button"]
-              | Edit profile
+            a.btn.btn-primary.float-right.m-1[href="/#{I18n.locale}/users/edit" role="button"]
+              = t(:edit_profile)
     .list-group
       - @user.ads.each do |ad|
         a.list-group-item.list-group-item-action.flex-column.align-items-start[href="/ads/#{ad.id}"]

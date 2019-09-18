@@ -11,6 +11,9 @@ Bundler.require(*Rails.groups)
 module ProjectAds
   class Application < Rails::Application
     config.time_zone = 'Minsk'
+    config.i18n.available_locales = %i[ru en]
+    config.i18n.default_locale = :en
+
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
 

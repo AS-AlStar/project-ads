@@ -1,0 +1,33 @@
+ru:
+  activerecord:
+    models:
+      ad: 'Обьявление'
+      category: 'Категория'
+      user: 'Пользователь'
+
+    attributes:
+      ad:
+        title: 'Заголовок'
+        body: 'Содержание'
+        category: 'Категория'
+        image: 'Картинка'
+        created_at: 'Created at'
+
+      category:
+        name: 'Название'
+        created_at: 'Created at'
+
+      user:
+        nickname: 'Псевдоним'
+        first_name: 'Имя'
+        last_name: 'Фамилия'
+        password: 'Пароль'
+        password_confirmation: 'Подтверждения пароля'
+        current_password: 'Текущий пароль'
+        sign_in: 'Войти'
+        sign_up: 'Зарегистрироваться'
+        created_at: 'Created at'
+
+    errors:
+      messages:
+        blank: "не может быть пустым"

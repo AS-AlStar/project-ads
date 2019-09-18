@@ -1,5 +1,5 @@
 #searchGroup
-  input[type="text"]
-  a[href="/"]
+  input[type="text" placeholder = t(:search_ads)]
+  a[href="/#{I18n.locale}/"]
     .btn.btn-primary
-      | Search
+      = t(:search)

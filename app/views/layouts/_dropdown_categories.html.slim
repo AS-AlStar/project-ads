@@ -1,7 +1,7 @@
 li.nav-item.dropdown
   a#navbarDropdown.nav-link.dropdown-toggle[href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"]
-    |  Categories 
+    = t(:categories)
   .dropdown-menu[aria-labelledby="navbarDropdown"]
     - Category.all.published.each do |category|
-      a.dropdown-item[href="/categories/#{category.id}"]
+      a.dropdown-item[href="/#{I18n.locale}/categories/#{category.id}"]
         = category.name

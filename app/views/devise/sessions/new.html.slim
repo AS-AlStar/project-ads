@@ -1,21 +1,21 @@
-.container
-  .row.justify-content-center.align-items-center[style="min-height: 100vh;"]
+.container.p-5
+  .row.justify-content-center.align-items-center
     .col-md-auto
       h2
-        | Log in
+        = t(:sign_in)
       = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
         .form-group
           = f.label :email
           br
           = f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control'
         .form-group
-          = f.label :password
+          = f.label t(:password)
           br
           = f.password_field :password, autocomplete: "current-password", class: 'form-control'
         - if devise_mapping.rememberable?
           .form-group
             = f.check_box :remember_me
-            = f.label :remember_me
+            = f.label t(:remember_me)
         .actions
-          = f.submit "Log in", class: 'btn btn-primary'
+          = f.submit t(:sign_in), class: 'btn btn-primary'
       = render "devise/shared/links"
