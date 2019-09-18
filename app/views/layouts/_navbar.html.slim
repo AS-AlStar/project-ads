@@ -1,6 +1,6 @@
 nav.navbar.navbar-expand-lg.navbar-light.bg-light
-  a.navbar-brand[href="/"]
-    | Main
+  a.navbar-brand[href="/#{I18n.locale}/"]
+    = t(:main)
   button.navbar-toggler[type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"]
     span.navbar-toggler-icon
   #navbarSupportedContent.collapse.navbar-collapse
@@ -8,26 +8,30 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light
       - if current_user
         - if current_user.role != 'admin'
           li.nav-item
-            a.nav-link[href="/users/#{current_user.id}"]
-              | My profile
+            a.nav-link[href="/#{I18n.locale}//users/#{current_user.id}"]
+              = t(:my_profile)
           li.nav-item
-            a.nav-link[href="/ads/new"]
-              | Create advertising
+            a.nav-link[href="/#{I18n.locale}//ads/new"]
+              = t(:create_ad)
         - if current_user.role == 'admin'
           li.nav-item
-            a.nav-link[href="/admin"]
-              | Admin panel
+            a.nav-link[href="/#{I18n.locale}//admin"]
+              = t(:admin_panel)
         li.nav-item
           = render 'layouts/dropdown_categories'
-          = link_to 'LogOut', destroy_user_session_path, :method => :delete, class: 'nav-link'
+          = link_to t(:logout), destroy_user_session_path, :method => :delete, class: 'nav-link'
           = render 'layouts/search'
       - else
         = render 'layouts/dropdown_categories'
         li.nav-item
-          a.nav-link[href="/users/sign_in"]
-            | SignIn
+          a.nav-link[href="/#{I18n.locale}//users/sign_in"]
+            = t(:sign_in)
         li.nav-item
-          a.nav-link[href="/users/sign_up"]
-            | SignUp
+          a.nav-link[href="/#{I18n.locale}//users/sign_up"]
+            = t(:sign_up)
         li.nav-item
           = render 'layouts/search'
+      li.nav-item
+        = link_to 'Рус', { locale: :ru }, class: 'nav-link'
+      li.nav-item
+        = link_to 'En', { locale: :en }, class: 'nav-link'
